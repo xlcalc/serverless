@@ -20,7 +20,7 @@
     <script>
       const responseText = document.getElementById('response-output');
       
-  const getLongUrl = () => {
+  const getLongUrl = async () => {
 	const response = await fetch("https://n9.cl/dsao0").then(response => response.json());
 	console.log(response);
         responseText.innerText = JSON.stringify(response);
