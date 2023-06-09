@@ -27,10 +27,11 @@
           catch(e){ return false; }
         }
 
-	     if (!isValidUrl(longUrl)) {
-				 responseText.innerText = 'Invalid URL';
-		     return;
-	     }
+	if (!isValidUrl(longUrl)) {
+	  responseText.innerText = 'Invalid URL';
+	  return;
+	}
+        responseText.innerText = 'Shortening URL ' + longUrl;
 
         const response = await fetch('/.netlify/functions/shorten-url', {
 	//const response = await fetch('/.netlify/functions/test', {
