@@ -8,14 +8,31 @@
   </head>
   <body>
     <h1>Up and Running with Serverless Functions</h1>
+    <input id="input-text" type="url" placeholder="Enter URL here" />
+    <button type="submit" id="url-button" onclick="shortenURL()">Shorten</button>
+
     <button id="fetch-btn">Fetch</button>
+    <h3>Output</h3>
     <p id="response-output">Response Placeholder</p>
 
     <script>
+      const responseText = document.getElementById('response-output');
+      
+      const shortenURL = async () => {
+        const longUrl = document.getElementById('fetch-btn').value;
+        const response = await fetch('/.netlify/functions/shorten-url', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ url: longUrl })
+        }).then(response => response.json()).then(data => console.log(data));
+        responseText.innerText = JSON.stringify(response);
+      }
+      
       document.addEventListener('DOMContentLoaded', () => {
-        const fetchBtn = document.getElementById('fetch-btn')
-        const responseText = document.getElementById('response-output')
-
+        const fetchBtn = document.getElementById('fetch-btn');
+        
 fetchBtn.addEventListener('click', async () => {
   const response = await fetch('/.netlify/functions/test')
 		.then(response => response.json()
