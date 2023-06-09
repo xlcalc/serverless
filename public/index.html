@@ -12,7 +12,10 @@
     <input id="input-text" type="url" placeholder="Enter URL here" />
     <button type="submit" id="url-button" onclick="shortenURL()">Shorten</button>
     
-    <h3>Fetch environment key</h3>
+    <h3>Expand URL</h3>
+    <button id="expand-btn" onclick="expandURL()">Expand</button>
+
+	<h3>Fetch environment key</h3>
     <button id="fetch-btn">Fetch it!</button>
     <h3>Output</h3>
     <p id="response-output">Response Placeholder</p>
@@ -20,8 +23,19 @@
     <script>
       const responseText = document.getElementById('response-output');
       
-  const getLongUrl = async () => {
-	const response = await fetch("https://n9.cl/dsao0").then(response => response.json());
+  const expandURL = async () => {
+	  const shortUrl = "https://n9.cl/dsao0")
+	  console.log('Expanding URL', shortUrl);
+//	const response = await fetch("https://n9.cl/dsao0").then(response => response.json());
+	        const response = await fetch('/.netlify/functions/expand-url', {
+	//const response = await fetch('/.netlify/functions/test', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ url: shortUrl })
+        }).then(response => response.json());
+
 	console.log(response);
         responseText.innerText = JSON.stringify(response);
   }
