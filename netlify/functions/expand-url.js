@@ -4,7 +4,7 @@ export const handler = async (event, context) => {
     const response = await fetch("https://n9.cl/dsao0");
   return {
     statusCode: 200,
-//    body: JSON.stringify(response)
-    body: response.url
+    body: JSON.stringify(response.url)
+//    body: response.url
   }
 }
