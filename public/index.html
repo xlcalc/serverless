@@ -11,7 +11,7 @@
     <h3>Shorten url with n9.cl</h3>
     <input id="input-text" type="url" placeholder="Enter URL here" />
     <button type="submit" id="url-button" onclick="shortenURL()">Shorten</button>
-    <br>
+    
     <h3>Fetch environment key</h3>
     <button id="fetch-btn">Fetch it!</button>
     <h3>Output</h3>
@@ -20,6 +20,12 @@
     <script>
       const responseText = document.getElementById('response-output');
       
+  const getLongUrl = () => {
+	const response = await fetch("https://n9.cl/dsao0").then(response => response.json());
+	console.log(response);
+        responseText.innerText = JSON.stringify(response);
+  }
+	    
       const shortenURL = async () => {
         const longUrl = document.getElementById('input-text').value;
 	      const isValidUrl = urlString => {
