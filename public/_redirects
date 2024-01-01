@@ -15,6 +15,7 @@
 /voa1 https://audiodrill.com/?t=//en/voa1/voa1-index.txt
 /voa2 https://audiodrill.com/?t=//en/voa2/voa2-index.txt
 /voa1* https://audiodrill.com/?t=//en/voa1/voa1:splat.txt
+/voa2* https://audiodrill.com/?t=//en/voa2/voa2:splat.txt
 # doesn't work: /?t=:slug https://audiodrill.com/?t=:slug
 # works but encodes slash: / t=:t https://audiodrill.com/?t=:t
 /*   https://audiodrill.com/?shorturl=:splat
