@@ -18,4 +18,4 @@
 /voa2* https://audiodrill.com/?t=//en/voa2/voa2:splat.txt
 # doesn't work: /?t=:slug https://audiodrill.com/?t=:slug
 # works but encodes slash: / t=:t https://audiodrill.com/?t=:t
-/*   https://audiodrill.com/?shorturl=:splat
+# /*   https://audiodrill.com/?shorturl=:splat
