@@ -1,4 +1,4 @@
-export async function handler(event) {
+export const handler = async (event, context) => {
   // Handle CORS preflight
   const cors = {
     'Access-Control-Allow-Origin': '*',
