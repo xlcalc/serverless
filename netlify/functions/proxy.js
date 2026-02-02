@@ -48,7 +48,6 @@ exports.handler = async function(event) {
         headers: { 'Access-Control-Allow-Origin': '*' },
         body: JSON.stringify({ 'url': url, 'message': 'AND body', 'body': body }),
       };
-    }
 
     
     // Limit which API hosts can be called
