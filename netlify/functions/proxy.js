@@ -39,6 +39,15 @@ export async function handler(event) {
       };
     }
 
+// for debugging
+      return {
+        statusCode: 200,
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify({ 'url': url, 'message': 'AND body', 'body': body }),
+      };
+    }
+
+    
     // Limit which API hosts can be called
     const ALLOWED_HOSTS = ['youtubetranscripts.app'];
     const hostname = new URL(url).hostname;
