@@ -22,8 +22,19 @@ exports.handler = async function(event) {
     };
   }
 
+  const getData = async (event) => JSON.parse(event.body || '{}');
+  
+  const { url, body } = await getData(event);
+
+  // for debugging
+      return {
+        statusCode: 200,
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify({ 'url': url, 'message': 'AND body', 'body': body }),
+      }
+  
   try {
-    const { url, body } = JSON.parse(event.body || '{}');
+//    const { url, body } = JSON.parse(event.body || '{}');
 
     // Validate input
     if (!url) {
