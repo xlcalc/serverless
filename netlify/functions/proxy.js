@@ -11,6 +11,14 @@ export async function handler(event) {
     };
   }
 
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers: { 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ error: 'Non-POST Method Not Allowed' }),
+    };
+  }
+
   try {
     const { url, body } = JSON.parse(event.body || '{}');
 
