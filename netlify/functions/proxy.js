@@ -1,13 +1,15 @@
 export async function handler(event) {
   // Handle CORS preflight
+  const cors = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  }
+
   if (event.httpMethod === 'OPTIONS') {
     return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      },
+      statusCode: 204,
+      headers: cors,
     };
   }
 
